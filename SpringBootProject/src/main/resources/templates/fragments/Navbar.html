@@ -1,0 +1,99 @@
+
+
+<!--navbar-->
+
+	<div th:fragment="header">
+	
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	#header{
+		position: absolute;
+		z-index: 10;
+		width: 100%;
+	}
+	
+	.navbar{
+		padding: 20px 0;
+	}
+	
+	img{
+		right: 100%;
+	}
+	
+	.nav-item{
+		font-weight: 800;
+		font-size: 1.5em;
+		text-transform: uppercase;
+		padding-left: 5px;
+	}
+	
+	.navbar-dark .navbar-nav .nav-item .nav-link:hover{
+		background: rgb(174, 91, 255);
+		color: white;
+	}
+	
+	.navbar-dark .navbar-nav .nav-item .nav-link{
+		    color: rgb(174, 91, 255);
+	}
+
+
+
+	</style>
+	
+	
+		<section id="header">
+			<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg navbar-dark">
+			
+				<div class="container">
+					<a th:href="@{/index}" class="navbar-brand"><img src = "logo.png" alt="Text to display when image can not be displayed"/></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+					</button>
+					
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto">
+						
+							<li class="nav-item active">
+								<a th:href="@{/index}" class="nav-link">Home</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/HomemadeIceCream}" class="nav-link">Homemade Ice Cream</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/catering}" class="nav-link">Catering</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/about}" class="nav-link">About Us</a>
+							</li>
+							
+							<li class = "nav-item">
+								<a sec:authorize="hasRole('USER')" th:href="@{/register}" class="nav-link">Sign-Up</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+			</div>
+		</section>
+		
+	</div>
+	
+	
+	<!--end of navbar-->
+	
+
+		
+	</div>
+	
+<!--end of navbar-->

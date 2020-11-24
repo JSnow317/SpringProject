@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org"  lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<!--/*/ <th:block th:include="fragments/headerINC :: head"></th:block> /*/-->
+<link rel="icon" th:href="@{/images/logo.png}">
+
+<script>
+
+$(document).ready(function(){
+    $('.swift').click(function(){
+        var signButton = $(this).html();
+        console.log(signButton);
+        debugger;
+        if(signButton == 'Create Account'){
+        	location.href = "http://localhost:8080/register"
+        }
+
+    })
+})
+
+</script>
+
+</head>
+
+<style>
+
+	body{
+		background: rgb(223, 255, 255);
+	}
+
+
+
+	.main{
+		position: relative;
+		padding: 90px;
+	}
+		
+	.main h2{
+		margin: 0;
+		font-size: 4em;
+		color: rgb(174, 91, 255);
+		font-family: sans-serif;
+		text-align: center;
+		font-style: oblique;
+		padding-top: 12%;
+	}
+	
+	.container{
+		padding-bottom: 90px;
+	}
+
+.b-height{
+    position: relative;
+    padding:35px 0px 0px;
+}
+.b-wrapper{
+    display:flex;
+    align-items:center;
+    min-height: 650px;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px rgba(0,0,0,.2);
+} 
+.b-min-height{
+    height: 650px;
+    background: #00bdaa;    
+}
+.b-logo{
+    width:100px;
+}
+.b-title{
+    padding:100px 0px 0px;
+}
+.b-title h1{
+    color:#fff;
+    font-weight:600;
+}
+.b-title p{
+    color: #e7e7e7;
+    margin:30px 0px 40px;
+}
+.b-title button{
+    letter-spacing: 0.4px;
+    padding: 15px 85px;
+    border-radius: 36px;
+    border: 1.5px solid #fff;
+    background: transparent;
+    color: #fff;
+    text-transform: uppercase;
+}
+.b-title button:focus{
+    outline:none;
+}
+.b-form{
+    width:60%;
+    margin:auto;
+}
+.b-form-title h1{
+    color: #00bdaa;
+    font-size: 34px;
+    font-weight: 900;
+}
+.b-form-title i{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 36px;
+    line-height: 46px;
+    font-size: 20px;
+    margin: 13px 5px;
+    color:#333;
+    cursor:pointer;
+}
+.b-subtext{
+    color: #b4b2b2;
+    font-size: 14px;
+}
+.b-form .form-control{
+    font-size:14px;
+    height: 50px;
+    padding-left: 45px;
+    background: #edf9fe;
+    border-color: #edf9fe;
+    color: #333;
+}
+.b-form .form-control:focus{
+    outline:none;
+    box-shadow:none;
+} 
+.form-group{
+    position: relative;
+}
+.b-font{
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    z-index: 10;
+    color: #6b6b6b;
+    font-size:13px;
+}    
+.b-form button{
+    letter-spacing: 0.4px;
+    padding: 15px 85px;
+    border-radius: 36px;
+    border: 1.5px solid #fff;
+    background: #00bdaa;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top:25px;
+}
+.b-form button:focus{
+    outline:none;
+}
+.b-form .b-forgot{
+    border-bottom: 1px solid #e8e4e4;
+    padding-bottom: 10px;
+    color: #7e7e7e;
+    font-size: 14px;
+    font-weight: 600;
+    cursor:pointer;
+    display:none;
+}
+.swift_right{
+    display:none;
+}
+.swift_element{
+    display:flex;
+    align-items:unset;
+    flex-direction: row-reverse;
+    transition:0.3s ease-in-out;
+    -webkit-transition:0.3s ease-in-out;
+    -moz-transition:0.3s ease-in-out;
+    -ms-transition:0.3s ease-in-out;
+    -o-transition:0.3s ease-in-out;
+}
+
+
+</style>
+
+
+<body>
+
+<!--navbar-->
+	<!--/*/ <th:block th:include="fragments/Navbar :: header"></th:block> /*/-->
+<!--end of navbar-->
+
+
+
+	  	<section class="main">
+			<div class="containerOne">
+					<h2>Login</h2>
+			</div>
+		</section> 
+		
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-height">
+            <div class="row b-wrapper"> 
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 b-min-height">
+                    <div class="b-logo swift_left">
+                    </div>
+                    <div class="b-title text-center">
+                        <h1 class="user_title">Dont Have An Account?</h1>
+                        <p class="user_subTitle">To order online with us please </br> create at account by clicking below.</p>
+                        <button type="button" class="swift sign_in">Create Account</button>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                    <div class="b-logo swift_right">
+                        <a href = ""><img src="logo.png" alt="Logo" class="img-fluid"></a>
+                    </div>
+                    <div class="b-form text-center">
+                        <div class="b-form-title">
+                            <h1 class="form_title">Login Here</h1>
+                            <p>
+                                <span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
+                                <span><a href="#"><i class="fab fa-twitter"></i></a></span>
+                                <span><a href="#"><i class="fab fa-instagram"></i></a></span>
+                            </p>
+                            <p class="b-subtext">or use your email for registration</p>
+                        </div>
+                        <form method="post" th:action="@{/login/authenticate}" th:object="${user}">
+
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="username" placeholder="username" required>
+                                <i class="fas fa-user b-font"></i>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id = "password" type="password" name="password" placeholder="password" required>
+                                <i class="fas fa-unlock-alt b-font"></i>
+                            </div>
+                            <div class="form-group">
+                                <span class="b-forgot">Forgot your password?</span>
+                            </div>
+
+                            <button type="submit" class="sign_up">Sign In</button>
+                        </form>
+                        
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+	<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+<!--end of footer-->
+
+</body>
+</html>
+
+
+
+</body>
+</html>

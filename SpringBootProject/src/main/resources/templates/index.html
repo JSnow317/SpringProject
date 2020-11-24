@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org"  lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Frosty Treats</title>
+<!--/*/ <th:block th:include="fragments/headerINC :: head"></th:block> /*/-->
+<link rel="icon" th:href="@{/images/logo.png}">
+</head>
+	
+	<style>
+	.main{
+		position: relative;
+		background: url(logo2.png);
+		min-height: 90vh;
+		background-size: cover;
+		background-position: center;
+		padding: 300px 0 200px 0;
+	}
+	
+		.submain{
+		position: relative;
+		background: rgb(165, 228, 255);
+		min-height: 60vh;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.main h2{
+		margin: 0;
+		padding: 0;
+		color: white;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.btn{
+	
+		background: transparent;
+		transition: all 1.0s ease 1.0s;
+		font-family: sans-serif;
+		font-style: oblique;
+		font-size: 1.5em;
+		color: rgb(174, 91, 255);
+		display: flex;
+		justify-content: center;
+		
+	}
+	
+	.btn:hover{
+	border-radius: 20px;
+    background-color: rgb(174, 91, 255);
+}	
+
+	@media(max-width: 768px){
+		.main{
+			padding: 200px 0;
+		}
+	}
+	
+	.main h2{
+		font-size: 3em;
+		color: rgb(255, 171, 227);
+	}
+	
+	.main h3{
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-style: oblique;
+	font-weight: 600;
+	font-size: 6em;
+	color: rgb(174, 91, 255);
+	animation: text 3s 1;
+	}
+
+	@keyframes text{
+		0%{
+			color: black;
+			margin-bottom: -40px;
+		}
+		30%{
+			letter-spacing: 25px;
+			margin-bottom:-40px;
+		}
+		
+		85%{
+			letter-spacing: 10px;
+			margin-bottom: -40px;
+		}
+	}
+	
+	/* Image Card CSS Design */
+	
+	#cardone{
+	 	box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		position: absolute;
+		width: 25rem;
+		bottom: 5%;
+		left: 15%;
+	}
+	
+	#cardtwo{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		position: absolute;
+		width: 25rem;
+		bottom: 5%;
+		left: 60%;
+	}
+	
+	.card-img-top{
+		height: 22rem;
+	}
+	
+	.card-body{
+		height: 16rem;
+		color: rgb(174, 91, 255);
+		background-color: rgb(255, 250, 241);
+	}
+
+	
+	.card-title{
+		text-align: center;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	
+	.card-text{
+		text-align: center;
+		font-family: sans-serif;
+		font-style: oblique;
+	}
+
+
+	
+	</style>
+<body>
+
+
+<!--navbar-->
+	<!--/*/ <th:block th:include="fragments/Navbar :: header"></th:block> /*/-->
+<!--end of navbar-->
+
+		
+	  	<section class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+					<br>
+					<h2>Welcome To </h2>
+					<br>
+					<h3>Frosty Treats</h3>
+					<br>
+					<a th:href="@{/shop}" class="btn">Order Now!</a>
+				</div>
+				</div>
+			</div>
+		</section> 
+		
+		<section class = "submain">
+			<div class = "containerTwo">
+				
+				<div class="card" id = "cardone">
+  				<img src="cardbody.jpeg" class="card-img-top" alt="...">
+  					<div class="card-body">
+    				<h5 class="card-title">Order Now!!!</h5>
+    				<p class="card-text">Place an order online and it will be ready when you get to the shop!!  
+    				Click the link above, place an order before you leave the house, 
+    				and it will be ready in 10 minutes!!
+    				</p>
+    				<a th:href = "@{/shop}" class="btn">Order Now!!</a>
+ 				 </div>
+			</div>
+			
+			<div class="card" id ="cardtwo">
+  				<img src="Homemade.jpg" class="card-img-top" alt="...">
+  					<div class="card-body">
+    				<h5 class="card-title">Home made Ice Cream Discography</h5>
+    				<p class="card-text">Click here to view our origins and how we developed into one of the most 
+    				successful Ice Cream companies globally!
+    				</p>
+    				<a th:href="@{/shop}" class="btn">View Now!!</a>
+ 				 </div>
+			</div>
+			</div>
+		</section>
+		
+<!--footer-->
+	<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+<!--end of footer-->
+
+
+</body>
+</html>

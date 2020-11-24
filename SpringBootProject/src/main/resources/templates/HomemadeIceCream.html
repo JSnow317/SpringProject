@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home-Made Ice Cream</title>
+<!--/*/ <th:block th:include="fragments/headerINC :: head"></th:block> /*/-->
+<link rel="icon" th:href="@{/images/logo.png}">
+</head>
+
+<style>
+
+	.main{
+		position: relative;
+		background: rgb(223, 255, 255);
+		min-height: 50vh;
+		background-size: cover;
+		background-position: center;
+		padding: 100px;
+	}
+		
+	.main h2{
+		margin: 0;
+		font-size: 4em;
+		color: rgb(174, 91, 255);
+		font-family: sans-serif;
+		text-align: center;
+		font-style: oblique;
+		padding-top: 12%;
+	}
+
+	
+	/*------------------ Background Images ---------------------------*/
+	.overlayOne{	
+		background: url(OverlayOne.jpg);
+		min-height: 100%;
+		min-width: 100%;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover
+	}
+	
+	.overlayOne img{
+		visibility: hidden;
+	}
+	
+	.overlayTwo{	
+		background: url(OverlayTwo.jpg);
+		min-height: 100%;
+		min-width: 100%;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover
+	}
+	
+	.overlayTwo img{
+		visibility: hidden;
+	}
+	
+	/*-Sub main section, displays 2 cards with Hard serve, and soft serve flavors offered by Frosty Treats---*/
+	
+	.submain{
+		position: relative;
+		background: rgb(223, 255, 255);
+		min-height: 50vh;
+		background-size: cover;
+		background-position: center;
+		padding: 200px 0 400px 0;
+	}
+	
+	#cardone{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		background: rgb(255, 250, 241);
+		position: absolute;
+		height: 30rem;
+		width: 25rem;
+		bottom: 10%;
+		left: 15%;
+	}
+	
+		#cardtwo{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		background: rgb(255, 250, 241);
+		position: absolute;
+		height: 30rem;
+		width: 25rem;
+		bottom: 10%;
+		left: 60%;
+	}
+	
+	.card-title{
+		text-align: center;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	
+	.list {
+  		list-style-type: none;
+	}
+	
+	.list li {
+		text-align: center;
+		padding: 10px 10px 10px 10px;	
+	}
+	
+	a {
+    	color: #0060B6;
+    	text-decoration: none;
+	}
+
+	a:hover 
+	{
+     	color:#00A0C6; 
+     	text-decoration:none; 
+     	cursor:pointer;  
+	}
+	
+	/* Toppings and Beverages section. Displays all otppings and bevrages available*/
+	/* Uses identical CSS formatting as submain for responsive background, slight changes to cards to better fit the display*/
+	
+	
+	.submainTwo{
+		position: relative;
+		background: rgb(223, 255, 255);
+		min-height: 50vh;
+		background-size: cover;
+		background-position: center;
+		padding: 100px;
+	}
+	
+	#subcardone{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		background: rgb(255, 250, 241);
+		position: absolute;
+		height: 20rem;
+		width: 20rem;
+		bottom: 10%;
+		left: 10%;
+	}
+	
+	#subcardtwo{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		background: rgb(255, 250, 241);
+		position: absolute;
+		height: 20rem;
+		width: 20rem;
+		bottom: 10%;
+		left: 40%;
+	}
+			
+	#subcardthree{
+		box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+		background: rgb(255, 250, 241);
+		position: absolute;
+		height: 20rem;
+		width: 20rem;
+		bottom: 10%;
+		left: 70%;
+	}
+	
+	.card-title{
+		text-align: center;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	
+	.submainTwo h2{
+		margin: 0;
+		font-size: 4em;
+		color: rgb(174, 91, 255);
+		font-family: sans-serif;
+		text-align: center;
+		font-style: oblique;
+		padding-bottom: 30%;
+	}
+	
+
+	
+</style>
+
+<body>
+
+<!--navbar-->
+	<!--/*/ <th:block sec:authorize="isAnonymous()" th:include="fragments/Navbar :: header"></th:block> /*/-->
+<!--end of navbar-->
+
+	  	<section class="main">
+			<div class="containerOne">
+					<h2>Our Homemade Ice Cream</h2>
+			</div>
+		</section> 
+		
+		<div class = "overlayOne">
+			<img src="OverlayOne.jpg">
+		</div>
+		
+		<section class="submain">
+			<div class = "containerTwo">
+				
+				<div class="card" id = "cardone">
+  					<div class="card-body">
+    				<h5 class="card-title">Hard Serve Ice Cream</h5>
+  					<ul class="list">
+  						<li><a th:href = "@{/shop}">Chocolate</a></li>
+  						<li><a th:href = "@{/shop}">Cookie Dough</ia></li>
+  						<li><a th:href = "@{/shop}">Cookies n Cream</a></li>
+  						<li><a th:href = "@{/shop}">Frosty's CoCo Crisp</a></li>
+  						<li><a th:href = "@{/shop}">Heath Bar</a></li>
+  						<li><a th:href = "@{/shop}">Pistachio</a></li>
+  						<li><a th:href = "@{/shop}">Strawberry</a></li>
+  						<li><a th:href = "@{/shop}">Vanilla</a></li>
+  					</ul>
+ 				 </div>
+			</div>
+			
+			<div class="card" id ="cardtwo">
+  					<div class="card-body">
+  					<h5 class="card-title">Soft Serve Ice Cream</h5>
+  					<ul class="list">
+  						<li><a th:href = "@{/shop}">Blueberry</a></li>
+  						<li><a th:href = "@{/shop}">Bubblegum</a></li>
+  						<li><a th:href = "@{/shop}">Lemon</a></li>
+  						<li><a th:href = "@{/shop}">Orange</a></li>
+  						<li><a th:href = "@{/shop}">Peanut Butter</a></li>
+  						<li><a th:href = "@{/shop}">Pina Colada</a></li>
+  						<li><a th:href = "@{/shop}">Strawberry</a></li>
+  						<li><a th:href = "@{/shop}">Tutti Frutti</a></li>
+  					</ul>
+  						
+ 				 </div>
+			</div>
+			</div>
+		</section> 
+		
+		<div class = "overlayTwo">
+			<img src="OverlayOne.jpg">
+		</div>
+		
+		<section class="submainTwo">
+			<div class = "containerThree">
+			
+				<h2>Toppings and Beverages</h2>
+				<div class="card" id = "subcardone">
+  					<div class="card-body">
+    				<h5 class="card-title">Toppings</h5>
+  					<ul class="list">
+  						<li><a th:href = "@{/shop}">Caramel</a></li>
+  						<li><a th:href = "@{/shop}">Hot Fudge</a></li>
+  						<li><a th:href = "@{/shop}">Peanut Butter</ia></li>
+  						<li><a th:href = "@{/shop}">Strawberry</a></li>
+  					</ul>
+ 				 </div>
+			</div>
+			
+			<div class="card" id ="subcardtwo">
+  					<div class="card-body">
+  					<h5 class="card-title">Candy</h5>
+  					<ul class="list">
+  						<li><a th:href = "@{/shop}">Cookie Dough</a></li>
+  						<li><a th:href = "@{/shop}">Gummy Bears</a></li>
+  						<li><a th:href = "@{/shop}">Oreo</a></li>
+  						<li><a th:href = "@{/shop}">Peanut Crunch Coat</a></li>
+  					</ul>
+  						
+ 				 </div>
+			</div>
+			
+			<div class="card" id ="subcardthree">
+  					<div class="card-body">
+  					<h5 class="card-title">Beverages</h5>
+  					<ul class="list">
+  						<li><a th:href="@{/shop}">Frappe</a></li>
+  						<li><a th:href = "@{/shop}">Ice Cream Float</a></li>
+  						<li><a th:href = "@{/shop}">Milkshake(Any flavor Ice Cream)</a></li>
+  						<li><a th:href = "@{/shop}">Sherbert Freeze</a></li>
+  					</ul>
+  						
+ 				 </div>
+			</div>
+			</div>
+		</section> 
+		
+<!--footer-->
+	<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+<!--end of footer-->
+
+</body>
+</html>

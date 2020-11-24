@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cart</title>
+<meta charset="utf-8">
+<!--tab icon link -->
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+	integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+	crossorigin="anonymous">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+	rel="stylesheet">
+<!--BootStrap JS script tags-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+	
+<link th:href="@{/styles/main.css}" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	#header{
+		position: absolute;
+		z-index: 10;
+		width: 100%;
+	}
+	
+	.navbar{
+		padding: 50px 0;
+	}
+	
+	.nav-item{
+		font-weight: 800;
+		font-size: 1.5em;
+		text-transform: uppercase;
+		padding-left: 25px;
+	}
+	
+	.navbar-dark .navbar-nav .nav-item .nav-link:hover{
+		background: rgb(174, 91, 255);
+		color: white;
+	}
+	
+	.navbar-dark .navbar-nav .nav-item .nav-link{
+		    color: rgb(174, 91, 255);
+	}
+
+
+	.main{
+		position: relative;
+		background: rgb(223, 255, 255);
+		background-size: cover;
+		background-position: center;
+		padding: 50px;
+	}
+	
+	.submain{
+		background: rgb(223, 255, 255);
+	}
+		
+	.main h2{
+		margin: 0;
+		font-size: 4em;
+		color: rgb(174, 91, 255);
+		font-family: sans-serif;
+		text-align: center;
+		font-style: oblique;
+		padding-top: 12%;
+	}
+	
+	.jumbotron{
+		text-align: center;
+		background: rgb(223, 255, 255);
+	}
+	
+	.panel-default{
+		width: 99%;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	}
+	
+	.headerClass{
+		color: rgb(174, 91, 255);
+	}
+	
+	.col-md-2{
+		padding: 0 0 0 50px;
+	}
+	
+	.col-md-9{
+		padding: 0 0 0 50px;
+	}
+
+	
+	#tot{
+		width: 100%;
+		padding-top: 50px;
+		padding-bottom: 100px;
+		border-bottom: 2px solid black;
+	}
+
+</style>
+
+<body>
+
+	<section id="header">
+			<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg navbar-dark">
+			
+				<div class="container">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto">
+						
+							<li class="nav-item active">
+								<a th:href="@{/index}" class="nav-link">Home</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/HomemadeIceCream}" class="nav-link">Homemade Ice Cream</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/catering}" class="nav-link">Catering</a>
+							</li>
+							
+							<li class="nav-item">
+								<a th:href="@{/about}" class="nav-link">About Us</a>
+							</li>
+							
+							<li class = "nav-item">
+								<a th:href="@{/shop}" class="nav-link">Shop</a>
+							</li>
+							
+							<li class = "nav-item">
+								<a th:href="@{/logout}" class="nav-link">Logout</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+			</div>
+		</section>
+
+
+	  	<section class="main">
+			<div class="containerOne">
+					<h2>Frosty Treats Online Order</h2>
+			</div>
+		</section> 
+
+<div class="submain">
+
+    <h1 th:object="${user}" class="jumbotron">
+        	<span th:text="${username}"></span> Frosty Cart
+    </h1>
+
+    <div class="alert alert-info" th:if="${outOfStockMessage}" th:utext="${outOfStockMessage}"></div>
+
+    <div class="panel-default well" th:each="product : ${products.entrySet()}">
+        <div class="panel-heading">
+            <h1 class = "headerClass" th:text="${product.getKey().product_name}">Title</a></h1>
+            <h3 th:text="${product.getKey().product_type}">Description</h3>
+        </div>
+        <div class="row panel-body">
+            <div th:inline="text" class="col-md-2">Price: [[${product.getKey().product_price}]] $</div>
+            <div th:inline="text" class="col-md-9">Quantity: [[${product.getValue()}]]</div>
+            <a th:href="@{'/shoppingCart/removeProduct/{id}'(id=${product.getKey().product_id})}" class="col-md-1">
+                <button type="button" class="btn btn-primary" th:text="Remove">Remove</button>
+            </a>
+        </div>
+        <br></br>
+    </div>
+
+    <div class="row panel-body" id="tot">
+        <h2 class="col-md-11" th:inline="text">Total: $[[${total}]]</h2>
+        <a th:href="@{'/shoppingCart/checkout'}" class="col-md-1">
+            <button type="button" class="btn btn-danger" th:text="Checkout">Checkout</button>
+        </a>
+    </div>
+   </div>
+    
+<!--footer-->
+	<!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+<!--end of footer-->
+
+</html>
